@@ -1,0 +1,50 @@
+:root {
+  --bg: #f6f7ff;
+  --card: #ffffff;
+  --primary: #7c83ff;
+  --primary-dark: #5a63e6;
+  --text: #1f1f2e;
+  --muted: #6b6b80;
+  --border: #e6e8ff;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(124, 131, 255, .12);
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+}
+
+/* ===== BASE RESET ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.9em;
+}

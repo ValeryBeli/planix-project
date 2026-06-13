@@ -1,0 +1,183 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px;
+  margin-bottom: 10px;
+
+  border-radius: var(--radius);
+  background: #f7f8ff;
+  border-left: 3px solid var(--primary);
+
+  transition: 0.2s ease;
+}
+
+.item:hover {
+  transform: translateY(-1px);
+  background: #eef1ff;
+}
+
+.item .title {
+  flex: 1;
+
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+/* RIGHT SIDE */
+.right-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+
+  min-width: 135px;
+}
+
+/* TIME */
+.time-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: rgba(124, 131, 255, 0.12);
+  color: var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+/* ROOM */
+.room-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: var(--primary);
+  color: #fff;
+
+  font-size: 0.76rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+/* DEADLINES */
+.deadline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  margin-bottom: 8px;
+
+  border-radius: var(--radius);
+
+  background: #fff9f9;
+  border-left: 3px solid var(--danger);
+}
+
+.deadline.urgent {
+  border-left-color: var(--danger);
+  background: #fff0f0;
+}
+
+.deadline.soon {
+  border-left-color: var(--warning);
+  background: #fffbf0;
+}
+
+.deadline.ok {
+  border-left-color: var(--success);
+  background: #f0fff4;
+}
+
+.deadline .date {
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-width: 70px;
+}
+
+.deadline .info {
+  flex: 1;
+}
+
+.deadline .info strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.deadline .info span {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* CALENDAR */
+.calendar {
+  text-align: center;
+
+  padding: 20px;
+
+  background: #f7f8ff;
+  border-radius: var(--radius);
+
+  color: var(--muted);
+}
+
+.calendar .month {
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  color: var(--text);
+
+  margin-bottom: 14px;
+}
+
+.calendar .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 6px;
+
+  font-size: 0.85rem;
+}
+
+.calendar .day {
+  padding: 8px;
+
+  text-align: center;
+
+  border-radius: 8px;
+
+  transition: 0.2s ease;
+}
+
+.calendar .day:hover {
+  background: rgba(124, 131, 255, 0.08);
+}
+
+.calendar .day.today {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* DASHBOARD GRID */
+.dashboard-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

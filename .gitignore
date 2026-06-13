@@ -1,0 +1,76 @@
+# ===============================
+# Environment variables
+# ===============================
+.env
+!.env.example
+.env.local
+.env.development
+.env.production
+
+# ===============================
+# macOS / Windows
+# ===============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===============================
+# Logs
+# ===============================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+
+# ===============================
+# IDE / Editor
+# ===============================
+.idea/
+*.iml
+.vscode/
+!.vscode/extensions.json
+.project
+.classpath
+.settings/
+*.sw?
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ===============================
+# Maven / Java build
+# ===============================
+target/
+*.class
+*.jar
+*.war
+*.ear
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties?  
+
+# ===============================
+# Frontend (React / Vite)
+# ===============================
+node_modules/
+dist/
+dist-ssr/
+*.local
+coverage/
+.vite/
+
+# ===============================
+# Backend runtime files
+# ===============================
+uploads/
+temp/
+*.pid
+
+# ===============================
+# System & misc
+# ===============================
+*.lock
+*.log.gz

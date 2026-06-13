@@ -1,0 +1,177 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    padding: 40px 24px;
+  }
+  .main {
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .hero-subtitle {
+    margin: 0 auto 24px;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .hero-stats {
+    justify-content: center;
+  }
+  .hero-image {
+    order: -1;
+  }
+  .knitu-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .knitu-list {
+    align-items: center;
+  }
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-global {
+    padding: 10px 16px;
+  }
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+  }
+  .main {
+    padding: 16px;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lesson-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .lesson-actions {
+    justify-content: center;
+  }
+  .day-tabs,
+  .filter-tabs {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .day-tabs::-webkit-scrollbar,
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .tab,
+  .filter-tab {
+    flex-shrink: 0;
+  }
+  .task-card {
+    flex-direction: column;
+  }
+  .task-actions {
+    align-self: flex-end;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .chart-panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .chart-container {
+    grid-template-columns: 24px 1fr;
+  }
+  .chart-y-axis {
+    font-size: 0.7rem;
+    height: 160px;
+  }
+  .chart-area-wrapper {
+    height: 160px;
+  }
+  .habit-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .habit-stats-mini {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .header-actions {
+    width: 100%;
+  }
+  .header-actions .btn {
+    flex: 1;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .btn-lg {
+    width: 100%;
+    text-align: center;
+  }
+  .features-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .btn {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-controls {
+    width: 100%;
+    justify-content: center;
+  }
+  .chart-x-axis {
+    font-size: 0.7rem;
+  }
+  .habit-mini-streak {
+    gap: 2px;
+  }
+  .mini-day,
+  .mini-goal {
+    width: 22px;
+    height: 22px;
+    font-size: 0.65rem;
+  }
+}
