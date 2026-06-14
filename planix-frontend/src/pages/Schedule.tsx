@@ -5,18 +5,7 @@ import type { Subject } from "../types/subject";
 import ScheduleHeader from "../components/ScheduleHeader";
 import WeekSchedule from "../components/WeekSchedule";
 import ScheduleModals from "../components/ScheduleModals";
-
-const STUDY_YEAR_START = new Date("2025-09-01");
-
-function getWeekType(date: Date): "ODD" | "EVEN" {
-  const diffMs =
-    date.getTime() - STUDY_YEAR_START.getTime();
-
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  const weekNumber = Math.floor(diffDays / 7) + 1;
-
-  return weekNumber % 2 === 0 ? "EVEN" : "ODD";
-}
+import { getWeekType } from "../utils/week";
 
 export default function SchedulePage() {
 

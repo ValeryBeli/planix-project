@@ -22,13 +22,19 @@ function getDayName(dateStr: string): string {
 function getWeekDays() {
   const days: string[] = [];
   const today = new Date();
-
+  
   for (let i = 6; i >= 0; i--) {
     const d = new Date(today);
     d.setDate(today.getDate() - i);
-    days.push(d.toISOString().split("T")[0]);
+    
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const localDateStr = `${year}-${month}-${day}`;
+    
+    days.push(localDateStr);
   }
-
+  
   return days;
 }
 
@@ -133,12 +139,14 @@ return (
             <div className="habit-actions">
               <button
                 className="btn btn-outline btn-sm"
-                onClick={() =>
-                  toggleLog(
-                    habit.id,
-                    new Date().toISOString().split("T")[0]
-                  )
-                }
+                onClick={() => {
+                  const today = new Date();
+                  const year = today.getFullYear();
+                  const month = String(today.getMonth() + 1).padStart(2, '0');
+                  const day = String(today.getDate()).padStart(2, '0');
+                  const todayStr = `${year}-${month}-${day}`;
+                  toggleLog(habit.id, todayStr);
+                }}
               >
                 Отметить как выполненное
               </button>

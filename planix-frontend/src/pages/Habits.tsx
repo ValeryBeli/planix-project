@@ -13,15 +13,18 @@ function getCurrentStreak(
   const habitLogs = new Set(logs[habitId] || []);
 
   const days: string[] = [];
-
   const today = new Date();
 
   for (let i = 6; i >= 0; i--) {
     const d = new Date(today);
-
     d.setDate(today.getDate() - i);
-
-    days.push(d.toISOString().split("T")[0]);
+    
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const localDateStr = `${year}-${month}-${day}`;
+    
+    days.push(localDateStr);
   }
 
   let maxRun = 0;
@@ -41,17 +44,20 @@ function getCurrentStreak(
 
 function getWeekDays() {
   const days: string[] = [];
-
   const today = new Date();
-
+  
   for (let i = 6; i >= 0; i--) {
     const d = new Date(today);
-
     d.setDate(today.getDate() - i);
-
-    days.push(d.toISOString().split("T")[0]);
+    
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const localDateStr = `${year}-${month}-${day}`;
+    
+    days.push(localDateStr);
   }
-
+  
   return days;
 }
 
@@ -237,31 +243,31 @@ export default function Habits() {
 
   async function markAllToday() {
     try {
-      const today = new Date()
-        .toISOString()
-        .split("T")[0];
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      const todayStr = `${year}-${month}-${day}`;
 
       if (habits.length === 0) return;
 
       const allMarked = habits.every((h) => {
         const habitLogs = logs[h.id] || [];
-
-        return habitLogs.includes(today);
+        return habitLogs.includes(todayStr);
       });
 
       if (allMarked) {
         await Promise.all(
           habits.map(async (habit) => {
-            await habitApi.deleteLog(habit.id, today);
+            await habitApi.deleteLog(habit.id, todayStr);
           })
         );
       } else {
         await Promise.all(
           habits.map(async (habit) => {
             const habitLogs = logs[habit.id] || [];
-
-            if (!habitLogs.includes(today)) {
-              await habitApi.addLog(habit.id, today);
+            if (!habitLogs.includes(todayStr)) {
+              await habitApi.addLog(habit.id, todayStr);
             }
           })
         );
@@ -273,24 +279,24 @@ export default function Habits() {
     }
   }
 
-  function getStats() {
-    const today = new Date()
-      .toISOString()
-      .split("T")[0];
+function getStats() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${year}-${month}-${day}`;
 
     let doneToday = 0;
-
     let maxStreak = 0;
 
     habits.forEach((h) => {
       const habitLogs = logs[h.id] || [];
 
-      if (habitLogs.includes(today)) {
+      if (habitLogs.includes(todayStr)) {
         doneToday++;
       }
 
       const streak = getCurrentStreak(h.id, logs);
-
       if (streak > maxStreak) {
         maxStreak = streak;
       }
