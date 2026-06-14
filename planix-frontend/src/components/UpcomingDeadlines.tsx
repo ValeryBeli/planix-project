@@ -11,7 +11,7 @@ export default function UpcomingDeadlines({ upcomingTasks }: Props) {
         <p className="muted">Нет дедлайнов</p>
       ) : (
         upcomingTasks.map((t) => {
-          const daysLeft = Math.ceil((new Date(t.deadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+          const daysLeft = Math.ceil((new Date(t.deadline).getTime() - Date.now() - 10800000) / (1000 * 60 * 60 * 24));
 
           return (
             <div key={t.id} className={`deadline ${daysLeft <= 2 ? "urgent" : daysLeft <= 7 ? "soon" : "ok"}`}>
