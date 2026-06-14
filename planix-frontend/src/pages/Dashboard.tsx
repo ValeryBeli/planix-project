@@ -340,16 +340,8 @@ export default function Dashboard() {
     });
 
   const upcomingTasks = tasks
-    .filter((t) => t.deadline)
-    .sort(
-      (a, b) =>
-        new Date(
-          a.deadline
-        ).getTime() -
-        new Date(
-          b.deadline
-        ).getTime()
-    )
+    .filter((t) => t.deadline && (t.status !== 'COMPLETED' && t.status !== 'CANCELLED'))
+    .sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime())
     .slice(0, 4);
 
   const currentMonth =
